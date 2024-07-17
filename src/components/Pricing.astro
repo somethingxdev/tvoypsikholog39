@@ -1,54 +1,42 @@
 ---
-interface Props {
-  price_individual: number;
-  time_individual: string;
-
-  price_therapeutic: number;
-  time_therapeutic: string;
-}
-
 const { price_individual, time_individual, price_therapeutic, time_therapeutic } = Astro.props;
-
 import { Image } from 'astro:assets';
-
-import pricingIndividual from '../assets/pricing-individual.svg';
-import pricingtherapeutic from '../assets/pricing-therapeutic.svg';
 ---
 
-<div class="container px-5 py-10">
-  <h2 class="text-4xl xl:text-5xl mb-5 text-center">Стоимость</h2>
-  <div class="grid lg:grid-cols-3 items-stretch gap-5">
-    <div
-      class="bg-white w-full p-5 lg:col-span-2 drop-shadow rounded-xl bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-green-200 via-slate-100 to-green-300 flex flex-col">
-      <div class="flex flex-col lg:flex-row items-start lg:items-center lg:m-auto">
-        <div class="lg:max-w-sm w-full font-body">
-          <h3 class="text-[#365B44] text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 lg:mb-5">
-            Индивидуальные сессии
-          </h3>
-          <span class="block text-2xl text-[#636363] mb-2 lg:mb-[30px]">(от 18 лет)</span>
-          <span class="text-3xl text-[#1B1B1E] tracking-wide font-medium mb-5 lg:mb-0 block"
-            >{price_individual} ₽ / {time_individual}</span
-          >
-        </div>
-        <div class="max-w-lg">
-          <Image src={pricingIndividual} alt="Индивидуальные сессии" />
-        </div>
-      </div>
-    </div>
-    <div
-      class="bg-white w-full p-5 drop-shadow rounded-xl bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-green-200 via-slate-100 to-green-300">
-      <div class="flex flex-col items-start lg:items-center">
-        <div class="mb-5">
-          <Image src={pricingtherapeutic} alt="Индивидуальные сессии" />
-        </div>
-        <div class="max-w-sm w-full font-body">
-          <h3 class="text-[#365B44] text-2xl font-bold mb-2">Индивидуальные сессии</h3>
-          <span class="block text-2xl text-[#636363] mb-2">(от 18 лет)</span>
-          <span class="text-3xl text-[#1B1B1E] tracking-wide font-medium"
-            >{price_individual} ₽ / {time_individual}</span
-          >
-        </div>
-      </div>
-    </div>
-  </div>
+<div class='container py-10 md:py-20 scroll-mt-40' id='pricing'>
+	<h2 class='text-4xl xl:text-5xl mb-5 text-center'>Стоимость</h2>
+	<div class='grid lg:grid-cols-3 items-stretch gap-5'>
+		<div
+			class='bg-white w-full p-5 lg:col-span-2 drop-shadow rounded-xl bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-green-200 via-slate-100 to-green-300 flex flex-col'>
+			<div class='flex flex-col lg:flex-row items-start lg:items-center lg:m-auto'>
+				<div class='lg:max-w-sm w-full font-body'>
+					<h3
+						class='text-primaryDark text-2xl font-body sm:text-3xl lg:text-4xl font-bold mb-2 lg:mb-5'>
+						Индивидуальные сессии
+					</h3>
+					<span class='block text-2xl text-gray mb-2 lg:mb-[30px]'>(от 18 лет)</span>
+					<span class='text-3xl tracking-wide font-medium mb-5 lg:mb-0 block'>
+						{price_individual} ₽ / {time_individual}
+					</span>
+				</div>
+				<div class="max-w-md">
+					<Image src={import('@assets/pricing-individual.svg')} alt='Индивидуальные сессии' />
+				</div>
+		
+			</div>
+		</div>
+		<div
+			class='bg-white w-full p-5 drop-shadow rounded-xl bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-green-200 via-slate-100 to-green-300'>
+			<div class='flex flex-col items-start lg:items-center gap-5'>
+				<Image src={import('@assets/pricing-therapeutic.svg')} alt='Индивидуальные сессии' />
+				<div class='max-w-sm w-full font-body'>
+					<h3 class='text-primaryDark font-body text-2xl font-bold mb-2'>Терапевтические группы</h3>
+					<span class='block text-2xl text-gray mb-2'>(от 18 лет)</span>
+					<span class='text-3xl tracking-wide font-medium block'>
+						{price_therapeutic} ₽ / {time_therapeutic}
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

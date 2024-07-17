@@ -5,12 +5,12 @@ const emblaNode = <HTMLElement>document.querySelector('.embla');
 const viewportNode = <HTMLElement>emblaNode.querySelector('.embla__viewport');
 const prevBtn = <HTMLElement>emblaNode.querySelector('.embla__button--prev');
 const nextBtn = <HTMLElement>emblaNode.querySelector('.embla__button--next');
-const dotsNode = <HTMLElement>document.querySelector('.embla__dots');
+
 const emblaApi = EmblaCarousel(viewportNode, {
-  slidesToScroll: 4,
+  slidesToScroll: 'auto',
   breakpoints: {
     '(max-width: 992px)': { slidesToScroll: 3 },
-		'(max-width: 768px)': { slidesToScroll: 2 },
+    '(max-width: 768px)': { slidesToScroll: 2 },
     '(max-width: 576px)': { slidesToScroll: 1 },
   },
 });

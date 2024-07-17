@@ -12,11 +12,14 @@ module.exports = {
     },
     container: {
       center: true,
+      padding: '1rem'
     },
 
     extend: {
       colors: {
         primary: '#8AD9A6',
+        primaryDark: '#365B44',
+        primaryLight: '#DCF5E5',
         base: '#1B1B1E',
         gray: '#636363',
         white: '#fff',

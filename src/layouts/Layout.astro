@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
@@ -11,25 +11,22 @@ import '@fontsource/raleway/500.css';
 import '@fontsource/raleway/700.css';
 
 import '../base.css';
-import { ViewTransitions } from 'astro:transitions';
 
-import Themes from 'astro-themes';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en">
-  <head>
-    <ViewTransitions />
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body class="bg-white dark:bg-gray-900 transition-colors">
-    <Header />
-    <slot />
-  </body>
+<html lang='ru' class='scroll-smooth'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.ico' />
+		<title>{title}</title>
+	</head>
+	<body class='bg-white transition-colors'>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
 </html>
