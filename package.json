@@ -10,16 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/markdoc": "^0.11.2",
-    "@astrojs/react": "^3.6.0",
-    "@astrojs/sitemap": "^3.1.6",
-    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/markdoc": "0.11.5",
+    "@astrojs/react": "3.6.2",
+    "@astrojs/sitemap": "3.2.1",
+    "@astrojs/tailwind": "5.1.2",
     "@fancyapps/ui": "^5.0.22",
     "@fontsource-variable/el-messiri": "^5.0.8",
     "@fontsource/raleway": "^5.0.8",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^4.11.6",
+    "astro": "4.16.10",
     "astro-icon": "^1.1.0",
     "astro-navbar": "^2.1.0",
     "embla-carousel": "8.1.5",
@@ -29,9 +29,9 @@
     "react-dom": "^18.3.1",
     "sass": "^1.66.1",
     "tailwindcss": "^3.3.3",
-    "ymap3-components": "^1.1.6"
+    "ymap3-components": "latest"
   },
   "devDependencies": {
-    "@yandex/ymaps3-types": "^0.0.27"
+    "@yandex/ymaps3-types": "latest"
   }
 }
