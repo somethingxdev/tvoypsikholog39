@@ -1,0 +1,31 @@
+---
+import Greeting from '@components/Greeting.astro';
+import Helps from '@components/Helps.astro';
+import Hero from '@components/Hero.astro';
+import Pricing from '@components/Pricing.astro';
+import Reviews from '@components/Reviews.astro';
+import Map from '@components/Map';
+import Layout from '@layouts/Layout.astro';
+import Contacts from '@components/Contacts.astro';
+import Office from '@components/Office.astro';
+import Education from '@components/Education.astro';
+---
+
+<Layout title='Виктория Арсланова - Твои Психолог'>
+	<main class='pt-32 overflow-clip'>
+		<Hero />
+		<Greeting />
+		<Helps />
+		<Pricing
+			price_individual={2500}
+			time_individual='50 мин'
+			price_therapeutic={2000}
+			time_therapeutic='3 часа'
+		/>
+		<Office />
+		<Reviews />
+		<Education />
+		<Contacts />
+		<Map client:only='react' />
+	</main>
+</Layout>

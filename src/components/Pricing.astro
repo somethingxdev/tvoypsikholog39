@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+
+const items = [
+  {
+    label: 'Индивидуальные сессии',
+    age: '(от 18 лет)',
+    price: '2500 ₽ / 50 мин',
+    image: import('../assets/1.svg'),
+  },
+  {
+    label: 'Групповая терапия',
+    age: '(от 18 лет)',
+    price: '2000 ₽ / 3 часа',
+    image: import('../assets/2.svg'),
+  },
+  {
+    label: 'Интервизорская группа',
+    age: '(Для коллег-психологов) ',
+    price: '1000 ₽ / 2,5 часа',
+    image: import('../assets/3.svg'),
+  },
+];
+---
+
+<div class="container py-10 md:py-20 scroll-mt-40" id="pricing">
+  <h2 class="text-4xl xl:text-5xl mb-5 text-center">Стоимость</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 items-stretch gap-5">
+    {
+      items.map((item, index) => (
+        <div
+          class={`${index === 2 ? 'sm:col-span-2 lg:col-auto' : ''} bg-white p-5 drop-shadow rounded-xl bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))] from-green-200 via-slate-100 to-green-300`}>
+          <div class="flex flex-col items-start gap-5">
+            <div class="mx-auto text-center sm:h-[140px]">
+              <Image src={item.image} alt={item.label} class="size-full object-contain" />
+            </div>
+            <div class="flex flex-col items-start gap-3">
+              <h3 class="text-primaryDark text-2xl font-bold font-body"> {item.label} </h3>
+              <span class="text-xl text-gray">{item.age}</span>
+              <span class="text-2xl">{item.price}</span>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

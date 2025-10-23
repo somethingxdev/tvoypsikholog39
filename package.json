@@ -1,0 +1,38 @@
+{
+  "name": "tvoypsikholog39",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/markdoc": "0.15.8",
+    "@astrojs/react": "4.4.0",
+    "@astrojs/sitemap": "3.6.0",
+    "@astrojs/tailwind": "6.0.2",
+    "@fancyapps/ui": "^5.0.22",
+    "@fontsource-variable/el-messiri": "^5.0.8",
+    "@fontsource/raleway": "^5.0.8",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "5.15.1",
+    "astro-icon": "^1.1.0",
+    "astro-navbar": "^2.1.0",
+    "embla-carousel": "latest",
+    "embla-carousel-react": "latest",
+    "lucide-react": "^0.408.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.66.1",
+    "sharp": "^0.33.4",
+    "tailwindcss": "^3.3.3",
+    "ymap3-components": "latest"
+  },
+  "devDependencies": {
+    "@yandex/ymaps3-types": "latest"
+  }
+}

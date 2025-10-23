@@ -1,0 +1,72 @@
+---
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
+import { Image } from 'astro:assets';
+---
+
+<header class='fixed transition-all dark:bg-gray-900 z-[100] top-0 left-0 w-full'>
+	<Astronav closeOnClick>
+		<div class='container px-5 py-3'>
+			<div class='flex justify-between items-center'>
+				<div class='flex w-full justify-between'>
+					<div class='flex items-center gap-3'>
+						<div class='block lg:hidden z-50'><MenuIcon class='size-8 text-gray-800' /></div>
+						<a class='flex items-center gap-3 z-10'>
+							<Image src={import('../assets/logo.svg')} alt='logo' />
+							<div class='flex flex-col'>
+								<span class='font-semibold text-xl font-sans'>Арсланова Виктория</span>
+								<span class='tracking-widest font-body'>Твой психолог</span>
+							</div>
+						</a>
+					</div>
+				</div>
+				<MenuItems
+					class='hidden absolute top-0 left-0 z-5 w-full h-screen pt-32 lg:pt-0 lg:h-auto bg-white lg:bg-transparent lg:relative bg-transparent lg:flex flex-auto justify-end'>
+					<ul class='flex flex-col items-center gap-8 lg:flex-row lg:gap-5 text-xl'>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+							<a href='#greeting'>Обо мне</a>
+						</li>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+							<a href='#education'>Образование</a>
+						</li>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+							<a href='#reviews'>Отзывы</a>
+						</li>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+							<a href='#pricing'>Цена</a>
+						</li>
+					</ul>
+				</MenuItems>
+				<a
+					href='#contacts'
+					class='text-xl font-body border-2 ml-5 rounded-tl-3xl rounded-br-3xl border-primary px-7 py-0.5 hover:bg-primary hover:text-white hover:rounded-3xl transition-all hidden sm:block'>
+					Контакты</a
+				>
+			</div>
+		</div>
+	</Astronav>
+</header>
+
+<script>
+	let scrollpos = window.scrollY;
+
+	const header = document.querySelector('header') as HTMLElement;
+	const scrollChange = 1;
+
+	const add_class_on_scroll = () => {
+		header.classList.add('shadow-lg');
+		header.classList.add('bg-white');
+	};
+	const remove_class_on_scroll = () => {
+		header.classList.remove('shadow-lg');
+		header.classList.remove('bg-white');
+	};
+
+	window.addEventListener('scroll', function () {
+		scrollpos = window.scrollY;
+		if (scrollpos >= scrollChange) {
+			add_class_on_scroll();
+		} else {
+			remove_class_on_scroll();
+		}
+	});
+</script>

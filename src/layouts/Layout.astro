@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props;
+
+import '@fontsource-variable/el-messiri';
+import '@fontsource/raleway/400.css';
+import '@fontsource/raleway/500.css';
+import '@fontsource/raleway/700.css';
+import '../base.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<!doctype html>
+<html lang='ru' class='scroll-smooth'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<link rel='icon' type='image/x-icon' href='/favicon.ico' />
+		<title>{title}</title>
+	</head>
+	<body class='bg-white transition-colors'>
+		<Header />
+		<slot />
+		<Footer />
+	</body>
+</html>

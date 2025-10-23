@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+const links = [
+  { title: 'Обо мне', link: '#greeting' },
+  { title: 'Образование', link: '#education' },
+  { title: 'Отзывы', link: '#reviews' },
+];
+
+const socials = [
+  { url: 'https://wa.me/89114918854', icon: import('../assets/icons/whatsapp.svg') },
+  { url: 'https://t.me/ArslanovaViktoriya', icon: import('../assets/icons/telegram.svg') },
+  { url: 'https://vk.com/svetlaya_vikki', icon: import('../assets/icons/vk.svg') },
+];
+---
+
+<footer class="py-10">
+  <div class="container flex flex-col lg:flex-row justify-between items-center gap-5">
+    <div class="flex items-center gap-3 z-10">
+      <Image src={import('@assets/logo.svg')} alt="logo" class="w-12" />
+      <div class="flex flex-col">
+        <span class="font-semibold text-2xl font-sans">Арсланова Виктория</span>
+        <span class="tracking-widest font-body">Твой психолог</span>
+      </div>
+    </div>
+    <nav class="flex-auto">
+      <ul class="flex items-center gap-5 justify-center text-lg sm:text-xl">
+        {
+          links.map((item) => (
+            <li class="hover:text-[#70b6ef] transition-colors font-body">
+              <a href={item.link}>{item.title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <ul class="flex items-center gap-3">
+      {
+        socials.map((item) => (
+          <li class="hover:scale-110 transition-transform">
+            <a href={item.url} target='_blank'>
+              <Image src={item.icon} alt="socials" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</footer>

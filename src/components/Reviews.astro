@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
+
+const reviews = [
+	{ url: await import('@assets/reviews/1.png'), alt: 'education' },
+	{ url: await import('@assets/reviews/2.png'), alt: 'education' },
+	{ url: await import('@assets/reviews/3.png'), alt: 'education' },
+	{ url: await import('@assets/reviews/4.png'), alt: 'education' },
+	{ url: await import('@assets/reviews/5.png'), alt: 'education' },
+	{ url: await import('@assets/reviews/11.webp'), alt: 'education' },
+	{ url: await import('@assets/reviews/10.jpg'), alt: 'education' },
+	{ url: await import('@assets/reviews/6.jpg'), alt: 'education' },
+	{ url: await import('@assets/reviews/7.jpg'), alt: 'education' },
+	{ url: await import('@assets/reviews/8.jpg'), alt: 'education' },
+	{ url: await import('@assets/reviews/9.jpg'), alt: 'education' },
+	{ url: await import('@assets/reviews/12.jpg'), alt: 'education' },
+];
+---
+
+<section class='container py-20 scroll-mt-20' id='reviews'>
+	<h2 class='text-4xl xl:text-5xl mb-5 text-center'>Отзывы</h2>
+	<div class='embla'>
+		<div class='embla__viewport mb-5 overflow-hidden'>
+			<div class='embla__container flex gap-4'>
+				{
+					reviews.map(review => (
+						<div class='embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_24%] relative min-w-0'>
+							<Image quality={100} src={review.url.default} alt={review.alt} />
+						</div>
+					))
+				}
+			</div>
+		</div>
+		<div class='embla__buttons flex justify-center items-center gap-5'>
+			<button
+				class='embla__button--prev hover:bg-primary group border-2 transition-all border-primary rounded-full'>
+				<ArrowLeft className='text-primary size-10 group-hover:text-white' />
+			</button>
+			<button
+				class='embla__button--next hover:bg-primary group border-2 transition-all border-primary rounded-full'>
+				<ArrowRight className='text-primary size-10 group-hover:text-white' />
+			</button>
+		</div>
+	</div>
+</section>
+
+<style>
+	.embla__container {
+		backface-visibility: hidden;
+	}
+</style>
+
+<script src='../scripts/embla/index.ts'></script>

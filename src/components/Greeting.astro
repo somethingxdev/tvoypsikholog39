@@ -1,0 +1,90 @@
+---
+import { Image } from 'astro:assets';
+import image from '../assets/greeting.png';
+---
+
+<section class="container py-10 scroll-mt-40" id="greeting">
+  <div class="flex flex-col justify-between lg:flex-row items-center gap-20">
+    <div
+      class="relative hidden sm:block lg:w-full order-last lg:order-first xl:w-auto greeting-image mt-20 lg:mt-0">
+      <Image src={image} alt="image" quality={100} class="w-full" format="webp" />
+    </div>
+    <div class="max-w-3xl">
+      <h2 class="text-3xl mb-5">Доброго времени суток, клиент!</h2>
+      <div class="font-body flex flex-col gap-5 text-lg md:text-xl">
+        <p>
+          Меня зовут Арсланова Виктория и я дипломированный практикующий психолог. Работаю в
+          гештальт-подходе (целостный подход).
+        </p>
+        <p>
+          Работаю со взрослыми и молодежью от 18 лет. Предпочитаю очные приемы в своем кабинете, в
+          Калининграде.
+        </p>
+        <p>
+          Со мной спокойно и комфортно. Ты можешь быть уверен в своей безопасности и
+          конфиденциальности доверенной информации.
+        </p>
+        <p>А также в том, что тебя поймут и услышат.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .greeting-image::after {
+    position: absolute;
+    content: '';
+    left: -190px;
+    top: -135px;
+    width: 320px;
+    height: 350px;
+    background: url('../assets/greeting-mask.svg') 0 0 no-repeat;
+    z-index: -1;
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+
+  @media (max-width: 992px) {
+    .greeting-image::after {
+      transform: scale(0.8);
+    }
+  }
+
+  .greeting-image::before {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: -20px;
+    width: 430px;
+    height: 450px;
+    background: url('../assets/greeting-mask-2.svg') 0 0 no-repeat;
+    z-index: -2;
+  }
+
+  @media (max-width: 1306px) {
+    .greeting-image::before {
+      transform: scale(0.9);
+      right: -50px;
+      top: -40px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .greeting-image::before {
+      transform: scale(1);
+      right: -8%;
+      top: -6%;
+    }
+  }
+
+  @keyframes slidein {
+    from {
+      transform: rotate(5deg);
+    }
+    to {
+      transform: rotate(20deg);
+    }
+  }
+</style>

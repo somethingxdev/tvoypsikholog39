@@ -1,0 +1,37 @@
+<h2 class='text-4xl xl:text-5xl mb-5 text-center px-5'>г. Калининград, ул. Генделя, 3А</h2>
+<div class='map__block h-[500px] w-full' id='map'></div>
+
+<script
+	is:inline
+	src='https://api-maps.yandex.ru/2.1/?apikey=59037372-5663-482e-9a7d-56426e4a0f94&load=package.map&lang=ru_RU'
+></script>
+
+<script is:inline>
+	ymaps.ready(function () {
+		const myMap = new ymaps.Map('map', {
+			controls: [],
+			center: [54.72165, 20.496563],
+			zoom: 17,
+		});
+
+		let myPlacemark = new ymaps.Placemark(
+			[54.72165, 20.496563],
+			{
+				balloonContentHeader: 'Генделя, дом 3А',
+				balloonContentBody: '2 этаж, кабинет 205',
+				balloonContentFooter: '+ 7(911)-491-88-54',
+				hasBalloon: true,
+				hideIconOnBalloonOpen: true,
+			},
+			{
+				iconLayout: 'default#imageWithContent',
+				iconImageHref: '/map.svg',
+				iconImageSize: [40, 40],
+				iconImageOffset: [-20, -20],
+				iconContentOffset: [0, 0],
+			},
+		);
+		myMap.geoObjects.add(myPlacemark);
+		myMap.behaviors.disable('scrollZoom');
+	});
+</script>
