@@ -11,21 +11,16 @@ import Office from '@components/Office.astro';
 import Education from '@components/Education.astro';
 ---
 
-<Layout title='Виктория Арсланова - Твои Психолог'>
-	<main class='pt-32 overflow-clip'>
-		<Hero />
-		<Greeting />
-		<Helps />
-		<Pricing
-			price_individual={2500}
-			time_individual='50 мин'
-			price_therapeutic={2000}
-			time_therapeutic='3 часа'
-		/>
-		<Office />
-		<Reviews />
-		<Education />
-		<Contacts />
-		<Map client:only='react' />
-	</main>
+<Layout title="Виктория Арсланова - Твои Психолог">
+  <main class="pt-32 overflow-clip">
+    <Hero />
+    <Greeting />
+    <Helps />
+    <Pricing />
+    <Reviews />
+    <Office />
+    <Education />
+    <Contacts />
+    <Map client:only="react" />
+  </main>
 </Layout>

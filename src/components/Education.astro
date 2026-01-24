@@ -1,44 +1,68 @@
 ---
 import { Image } from 'astro:assets';
+import { ArrowLeft, ArrowRight, Divide } from 'lucide-react';
 
 const educations = [
-  { url: await import('../assets/education/education-1.png'), alt: 'education' },
-  { url: await import('../assets/education/education-2.png'), alt: 'education' },
-  
-  { url: await import('../assets/education/education-4.jpg'), alt: 'education' },
-  
-  { url: await import('../assets/education/education-5.jpg'), alt: 'education' },
-  { url: await import('../assets/education/education-7.jpg'), alt: 'education' },
-  
-  { url: await import('../assets/education/education-3.png'), alt: 'education' },
-  { url: await import('../assets/education/education-9.jpg'), alt: 'education' },
-  { url: await import('../assets/education/education-6.jpg'), alt: 'education' },
-  { url: await import('../assets/education/education-8.webp'), alt: 'education' },
-
+  { url: await import('@/assets/education/1.jpg'), alt: 'Диплом о профессиональной переподготовке "Практическая психология", 2022 год' },
+  { url: await import('@/assets/education/2.jpg'), alt: 'Сертификат об окончании II ступени Московского Гештальт Института, в статусе Сертифицированного Гештальт-терапевта, 2025 год.' },
+  { url: await import('@/assets/education/3.jpg'), alt: 'Сертификат об окончании профильной специализации "Групповая психотерапия",  2023 год.' },
+  { url: await import('@/assets/education/5.jpg'), alt: 'Сертификат об окончании профильной специализации "Базовые концепции семейной концепции гештальтистам", 2024 год.' },
+  { url: await import('@/assets/education/4.jpg'), alt: 'Сертификат об окончании профильной специализации "Клинический подход в гештальт терапии",  2025 год.' },
+  { url: await import('@/assets/education/6.jpg'), alt: 'Сертификат, говорящий о то, что я прошла курс семинаров на тему  "Расстройства и нарушения пищевого поведения", 2023 год.' },
+  {
+    url: await import('@/assets/education/7.jpg'),
+    alt: 'Сертификат, подтверждающий мое активное и регулярное участие в психологических официальных конференциях ОПП ГП "Московского Гештальт Института" в роли спикера, каждый год.',
+  },
+  {
+    url: await import('@/assets/education/8.jpg'),
+    alt: 'Пример сертификата, подтверждающий мое активное и регулярное участие в психологических официальных конференциях ОПП ГП "Московского Гештальт Института" в роли спикера.',
+  },
+  {
+    url: await import('@/assets/education/9.jpg'),
+    alt: 'Пример сертификата, подтверждающий мое активное и регулярное участие в психологических официальных интенсивах ОПП ГП "Московского Гештальт Института".',
+  },
+  { url: await import('@/assets/education/10.jpg'), alt: 'Пример сертификата, подтверждающий мое регулярное посещение супервизора и супервизорских групп для улучшения качества своей работы.' },
 ];
 ---
 
-<section class="container py-10 md:py-20 scroll-mt-20" id='education'>
+<section class="container py-10 md:py-20 scroll-mt-20" id="education">
   <h2 class="text-4xl xl:text-5xl mb-5 text-center">Образование</h2>
-  <div class="columns-2 md:columns-3">
-    {
-      educations.map((education) => (
-        <Image
-          src={education.url.default}
-          class="w-full mb-3 rounded-xl cursor-pointer"
-          quality={100}
-          format="webp"
-          data-fancybox
-          data-caption={education.alt}
-          alt="education"
-        />
-      ))
-    }
+
+  <div class="embla-education">
+    <div class="embla-education__viewport mb-10">
+      <div class="embla-education__container flex items-start gap-5 touch-pinch-zoom">
+        {
+          educations.map((education) => (
+            <div class="flex-[0_0_350px] min-w-0">
+              <Image
+                src={education.url.default}
+                class="rounded-xl cursor-pointer embla-education__slide 0 h-[400px] mb-3 object-cover hover:scale-105 transition-transform"
+                quality={100}
+                format="webp"
+                data-fancybox="education"
+                data-caption={education.alt}
+                alt={education.alt}
+              />
+              <p class="font-medium text-sm">{education.alt}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="embla__buttons flex justify-center items-center gap-5">
+      <button class="embla-education__prev hover:bg-primary group border-2 transition-all border-primary rounded-full">
+        <ArrowLeft className="text-primary size-10 group-hover:text-white" />
+      </button>
+      <button class="embla-education__next hover:bg-primary group border-2 transition-all border-primary rounded-full">
+        <ArrowRight className="text-primary size-10 group-hover:text-white" />
+      </button>
+    </div>
   </div>
 </section>
 
 <script>
-  import { Fancybox } from '@fancyapps/ui';
-  import '@fancyapps/ui/dist/fancybox/fancybox.css';
-  Fancybox.bind('[data-fancybox]', {});
+  import { initEducationCarousel } from '@/scripts/education-carousel';
+
+  initEducationCarousel();
 </script>

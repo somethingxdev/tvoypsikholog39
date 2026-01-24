@@ -23,6 +23,7 @@
     "astro-icon": "^1.1.0",
     "astro-navbar": "^2.1.0",
     "embla-carousel": "latest",
+    "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "latest",
     "lucide-react": "^0.408.0",
     "react": "^18.3.1",
