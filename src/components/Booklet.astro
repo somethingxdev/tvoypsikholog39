@@ -1,0 +1,55 @@
+---
+import { Image } from 'astro:assets';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+
+const images = [
+  { src: (await import('@assets/booklet/1.png')).default, alt: 'Антисуицидальный буклет, страница 1' },
+  { src: (await import('@assets/booklet/2.png')).default, alt: 'Антисуицидальный буклет, страница 2' },
+  { src: (await import('@assets/booklet/3.png')).default, alt: 'Антисуицидальный буклет, страница 3' },
+  { src: (await import('@assets/booklet/4.png')).default, alt: 'Антисуицидальный буклет, страница 4' },
+  { src: (await import('@assets/booklet/5.png')).default, alt: 'Антисуицидальный буклет, страница 5' },
+];
+---
+
+<section class="container py-10 md:py-20 scroll-mt-20" id="booklet-s">
+  <h2 class="text-4xl xl:text-5xl mb-8 text-center">Антисуицидальный буклет</h2>
+
+  <div class="embla-booklet">
+    <div class="embla-booklet__viewport overflow-hidden lg:overflow-visible mb-8">
+      <div class="embla-booklet__container flex gap-4 touch-pinch-zoom lg:grid lg:grid-cols-5 lg:items-start">
+        {
+          images.map((image, index) => (
+            <a
+              href={image.src.src}
+              class="booklet-preview block min-w-0 flex-[0_0_82%] sm:flex-[0_0_48%] md:flex-[0_0_36%] lg:flex-none"
+              data-fancybox="booklet"
+              data-caption={image.alt}
+              aria-label={image.alt}>
+              <Image
+                src={image.src}
+                quality={100}
+                alt={image.alt}
+                class="w-full object-contain shadow-sm transition-transform duration-300 hover:scale-[1.02]"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="embla-booklet__buttons flex justify-center items-center gap-5 lg:hidden">
+      <button class="embla-booklet__prev hover:bg-primary group border-2 transition-all border-primary rounded-full" type="button" aria-label="Предыдущая страница буклета">
+        <ArrowLeft className="text-primary size-10 group-hover:text-white" />
+      </button>
+      <button class="embla-booklet__next hover:bg-primary group border-2 transition-all border-primary rounded-full" type="button" aria-label="Следующая страница буклета">
+        <ArrowRight className="text-primary size-10 group-hover:text-white" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { initBookletCarousel } from '@/scripts/booklet-carousel';
+
+  initBookletCarousel();
+</script>

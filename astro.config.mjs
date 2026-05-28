@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://tvoypsikholog39.ru',
+  site: 'https://твойпсихолог39.рф',
   integrations: [
     tailwind({
       applyBaseStyles: false,

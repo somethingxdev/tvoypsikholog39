@@ -8,7 +8,7 @@ module.exports = {
       sm: '576px',
       md: '768px',
       lg: '976px',
-      xl: '1306px',
+      xl: '1360px',
     },
     container: {
       center: true,

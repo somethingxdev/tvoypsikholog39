@@ -7,31 +7,44 @@ import { Image } from 'astro:assets';
 	<Astronav closeOnClick>
 		<div class='container px-5 py-3'>
 			<div class='flex justify-between items-center'>
-				<div class='flex w-full justify-between'>
-					<div class='flex items-center gap-3'>
-						<div class='block lg:hidden z-50'><MenuIcon class='size-8 text-gray-800' /></div>
-						<a class='flex items-center gap-3 z-10'>
+
+					<div class='flex items-center flex-1 gap-3'>
+						<div class='block xl:hidden z-50'><MenuIcon class='size-8 text-gray-800' /></div>
+						<div class='flex items-center gap-3 z-10 shrink-0'>
 							<Image src={import('../assets/logo.svg')} alt='logo' />
 							<div class='flex flex-col'>
 								<span class='font-semibold text-xl font-sans'>Арсланова Виктория</span>
 								<span class='tracking-widest font-body'>Твой психолог</span>
 							</div>
-						</a>
+						</div>
 					</div>
-				</div>
-				<MenuItems
-					class='hidden absolute top-0 left-0 z-5 w-full h-screen pt-32 lg:pt-0 lg:h-auto bg-white lg:bg-transparent lg:relative bg-transparent lg:flex flex-auto justify-end'>
-					<ul class='flex flex-col items-center gap-8 lg:flex-row lg:gap-5 text-xl'>
-						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+
+				<MenuItems class='hidden absolute top-0 left-0 z-5 w-full h-screen pt-32 xl:pt-0 xl:h-auto bg-white xl:bg-transparent xl:relative bg-transparent xl:flex flex-auto justify-end'>
+					<ul class='flex flex-col items-center gap-8 xl:flex-row xl:gap-5 text-lg'>
+					<li class='hover:text-[#70b6ef] transition-colors uppercase xl:normal-case font-body flex items-center gap-2'>
+					<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_2033_131)">
+              <circle cx="9.5" cy="9.5" r="8.75" stroke="#E51A24" stroke-width="1.5"/>
+              <path d="M16 3L3 16" stroke="#E51A24" stroke-width="1.5"/>
+              </g>
+              <defs>
+              <clipPath id="clip0_2033_131">
+              <rect width="19" height="19" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+						<a href='#booklet-s'>Антисуицидальный буклет</a>
+					</li>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase xl:normal-case font-body'>
 							<a href='#greeting'>Обо мне</a>
 						</li>
-						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase xl:normal-case font-body'>
 							<a href='#education'>Образование</a>
 						</li>
-						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase xl:normal-case font-body'>
 							<a href='#reviews'>Отзывы</a>
 						</li>
-						<li class='hover:text-[#70b6ef] transition-colors uppercase lg:normal-case font-body'>
+						<li class='hover:text-[#70b6ef] transition-colors uppercase xl:normal-case font-body'>
 							<a href='#pricing'>Цена</a>
 						</li>
 					</ul>
